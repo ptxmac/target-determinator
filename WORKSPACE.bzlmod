@@ -1,0 +1,39 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
+
+## Pull in bazel_diff for testing.
+http_archive(
+    name = "bazel_diff",
+    patch_args = ["-p1"],
+    patches = ["@//:third_party/patches/bazel-diff-only-just-non-external-rules.patch"],
+    sha256 = "bdc3ef2192e9aeb288506e2f348aef57bce5e4facf7374b6185ac5ccdd4a9001",
+    strip_prefix = "bazel-diff-3.5.0",
+    url = "https://github.com/Tinder/bazel-diff/archive/refs/tags/3.5.0.tar.gz",
+)
+
+##########################################################
+# bazel-differ: https://github.com/ewhauser/bazel-differ #
+##########################################################
+
+http_file(
+    name = "bazel_differ_linux_arm64",
+    sha256 = "7a7166aa526c3688b9fb71dfc8913c35902d4a440a32ff02db55e7b91a97f666",
+    url = "https://github.com/ewhauser/bazel-differ/releases/download/v0.0.5/bazel-differ-linux-arm64",
+)
+
+http_file(
+    name = "bazel_differ_linux_x86_64",
+    sha256 = "ce563301a22f41cc111f2966fc77a23e655fbe1140d93b33eb4818f06c40a8d5",
+    url = "https://github.com/ewhauser/bazel-differ/releases/download/v0.0.5/bazel-differ-linux-x86_64",
+)
+
+http_file(
+    name = "bazel_differ_darwin_arm64",
+    sha256 = "0bcbfecfb9788764efa63922322b3c2d5a1a9c0da26b2dd8e7565ca60960e231",
+    url = "https://github.com/ewhauser/bazel-differ/releases/download/v0.0.5/bazel-differ-darwin-arm64",
+)
+
+http_file(
+    name = "bazel_differ_darwin_x86_64",
+    sha256 = "a18c17f1a5e9830dfadb5ad3df02b453882fc9ec46837e9f8450c655d2cbe214",
+    url = "https://github.com/ewhauser/bazel-differ/releases/download/v0.0.5/bazel-differ-darwin-x86_64",
+)
