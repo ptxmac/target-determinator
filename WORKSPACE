@@ -41,6 +41,8 @@ RULES_JVM_EXTERNAL_TAG = "4.2"
 
 RULES_JVM_EXTERNAL_SHA = "2cd77de091e5376afaf9cc391c15f093ebd0105192373b334f0a855d89092ad5"
 
+Z
+
 http_archive(
     name = "rules_jvm_external",
     sha256 = RULES_JVM_EXTERNAL_SHA,
